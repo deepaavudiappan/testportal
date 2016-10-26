@@ -15,15 +15,21 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/content/projects/load', [
-	'as'			=>	'conProjectload',
-	'uses'			=>	'projects\ProjectsController@projectsload'
+Route::get('/content', [
+	'as'			=>	'conIndex',
+	'uses'			=>	'Content\TalksController@index'
 	]);
-Route::get('/content/projects/showdescription', [
-	'as'			=>	'conShowProjDtls',
-	'uses'			=>	'projects\ProjectsController@ProjDesc'
+
+/********* Talks ***********/
+Route::get('/content/talksload', [
+	'as'			=>	'conTalkBase',
+	'uses'			=>	'Content\TalksController@talks_base'
 	]);
-Route::get('/content/projects', [
-	'as'			=>	'conProject',
-	'uses'			=>	'projects\ProjectsController@projects'
+Route::get('/content/talks', [
+	'as'			=>	'conTalk',
+	'uses'			=>	'Content\TalksController@talks'
+	]);
+Route::get('/content/talk_series',[
+	'as'			=>	'conTalkSeries',
+	'uses'			=>	'Content\TalksController@talk_series'
 	]);
